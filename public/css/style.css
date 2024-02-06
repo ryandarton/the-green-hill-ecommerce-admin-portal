@@ -1,0 +1,12 @@
+:root {
+  --header-font-family: 'Bitter', serif;
+  --header-font-weight: 400;
+  --header-font-style: normal;
+  --primary-background-color: ##faf8f0;
+}
+
+h1 {
+  font-family: var(--header-font-family);
+  font-weight: var(--header-font-weight);
+  font-style: var(--header-font-style);
+}
