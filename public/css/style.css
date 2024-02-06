@@ -2,11 +2,35 @@
   --header-font-family: 'Bitter', serif;
   --header-font-weight: 400;
   --header-font-style: normal;
-  --primary-background-color: ##faf8f0;
+  --primary-font-family: 'IBM Plex Mono', 'monospace', sans-serif;
+  --primary-font-weight: 300;
+  --primary-font-style: normal;
+  --primary-background-color: #faf8f0;
+}
+
+/* set the background color of the website */
+body {
+  background-color: var(--primary-background-color);
 }
 
 h1 {
   font-family: var(--header-font-family);
   font-weight: var(--header-font-weight);
   font-style: var(--header-font-style);
+}
+
+/* styling rules for p and buttons */
+p,
+button,
+menu {
+  font-family: var(--primary-font-family);
+  font-weight: var(--primary-font-weight);
+  font-style: var(--primary-font-style);
+}
+
+menu {
+  list-style: none;
+  li {
+    padding: 0.5em;
+  }
 }
