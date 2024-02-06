@@ -1,0 +1,29 @@
+<h1>Admin Orders Page</h1>
+<table>
+  <!-- Table headers -->
+  <tr>
+    <th>Order ID</th>
+    <th>Customer Name</th>
+    <th>Items Ordered</th>
+    <th>Total</th>
+    <th>Tax</th>
+    <th>Order Date & Time</th>
+    <th>Status</th>
+  </tr>
+  <!-- Table body with dynamic content -->
+  {{#each orders}}
+  <tr>
+    <td>{{this.id}}</td>
+    <td>{{this.customerName}}</td>
+    <td>
+      {{#each this.items}}
+      {{this.name}} ({{this.quantity}})<br>
+      {{/each}}
+    </td>
+    <td>${{this.total}}</td>
+    <td>${{this.tax}}</td>
+    <td>{{this.orderDateTime}}</td>
+    <td>{{this.status}}</td>
+  </tr>
+  {{/each}}
+</table>
