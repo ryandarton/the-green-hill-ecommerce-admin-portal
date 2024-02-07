@@ -70,3 +70,10 @@ heading {
     }
   }
 }
+
+.bg-video {
+  background-size: cover;
+  background: no-repeat center;
+  user-select: none;
+  pointer-events: none;
+}
