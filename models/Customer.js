@@ -1,7 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Customer extends Model {}
+class Customer extends Model {
+  async checkPassword(password) {
+    return await bcrypt.compare(password, this.password)
+  }
+}
 
 Customer.init(
   {
@@ -24,7 +28,7 @@ Customer.init(
       allowNull: false,
       isNumeric: true,
       validate: {
-        len: [10 - 10],
+        len: [10],
       },
     },
     email: {
@@ -33,6 +37,13 @@ Customer.init(
       unique: true,
       validate: {
         isEmail: true,
+      },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8, 20]
       },
     },
     address_line1: {
@@ -68,7 +79,7 @@ Customer.init(
       allowNull: false,
       isNumeric: true,
       validate: {
-        len: [5 - 5],
+        len: [5],
       },
     },
     country: {
@@ -79,20 +90,26 @@ Customer.init(
       },
   },
     no_purchase: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: true,
   },
       subscriber: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
   },
+},
   {
     sequelize,
+    hooks: {
+      async beforeCreate(newCustomerData) {
+        newCustomerData.password = await bcrypt.hash(newCustomerData.password);
+        return newCustomerData;
+      },
+    },
     freezeTableName: true,
     underscored: true,
     modelName: "customer",
-  }
-}
-);
+  }),
 
+ 
 module.exports = Customer;
