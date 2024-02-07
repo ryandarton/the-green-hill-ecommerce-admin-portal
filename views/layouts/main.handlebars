@@ -18,12 +18,24 @@
 
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
+<heading>
 <h1>The Green Hill</h1>
-<menu>
+<span class="menu-span">
+<menu class="primary-menu">
     <li>About</li>
     <li>Buy</li>
+    {{!-- dynamically show Login/Logout by status --}}
     <li>Login</li>
+    <li>Logout</li>
+    </menu>
+<menu class="secondary-menu">
+    {{!-- only show account and orders when logged in --}}
+    <li>Account</li>
+    <li>Orders</li>
+    <li>Cart</li>
 </menu>
+</span>
+</heading>
 <body>
     {{{body}}}
 </body>

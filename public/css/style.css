@@ -7,7 +7,7 @@
   --primary-font-family: 'IBM Plex Mono', 'monospace', sans-serif;
   --primary-font-weight: 300;
   --primary-font-style: normal;
-  --primary-font-color:   --header-font-color: #2d3d34;
+  --primary-font-color: #2d3d34;
   --primary-background-color: #faf8f0;
   --secondary-background-color: #f1efe3;
 }
@@ -22,7 +22,7 @@ h1 {
   font-weight: var(--header-font-weight);
   font-style: var(--header-font-style);
   letter-spacing: var(--header-letter-spacing);
-  color: var(--header-font-color)
+  color: var(--header-font-color);
 }
 
 /* styling rules for p and buttons */
@@ -32,12 +32,37 @@ menu {
   font-family: var(--primary-font-family);
   font-weight: var(--primary-font-weight);
   font-style: var(--primary-font-style);
-  color: var(--primary-font-color)
+  color: var(--primary-font-color);
 }
 
 menu {
   list-style: none;
   li {
     padding: 0.5em;
+  }
+}
+
+heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  margin: 0;
+  h1 {
+    margin: 1rem 3rem;
+  }
+  .menu-span {
+    display: flex;
+    menu {
+      padding-right: 3rem;
+      list-style: none;
+      display: flex;
+      li {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5em;
+      }
+    }
   }
 }
