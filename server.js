@@ -2,6 +2,7 @@ import express from 'express';
 import { engine } from 'express-handlebars';
 import path from 'path';
 import url from 'url';
+import adminRoutes from "./controllers/api/admin.js";
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,6 +13,8 @@ const app = express();
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use("/admin", adminRoutes);
 
 app.get('/', (req, res) => {
   res.render('homepage');
