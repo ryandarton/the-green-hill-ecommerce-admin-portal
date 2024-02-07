@@ -5,7 +5,7 @@ const loginForm = async (event) => {
     const email = document.getElementById('email').value;
 
     if(email && password) {
-        const response = await fetch ('', {
+        const response = await fetch ('/login', {
             method: 'POST',
             body: JSON.stringify({ email, password}),
             headers: {'Content-Type': 'application/json'},
