@@ -2,7 +2,6 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const url = require('url');
-const adminRoutes = require('./controllers/api/admin.js');
 const apiRoutes = require('./controllers/index.js');
 const sequelize = require('./config/connection.js');
 
@@ -13,7 +12,6 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', adminRoutes);
 app.use('/', apiRoutes);
 
 app.get('/', (req, res) => {
