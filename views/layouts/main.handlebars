@@ -1,46 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <title>The Green Hill</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover' />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link href='https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet' />
     <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-            rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
-
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
-</head>
-<heading>
-<h1>The Green Hill</h1>
-<span class="menu-span">
-<menu class="primary-menu">
-    <li>About</li>
-    <li>Buy</li>
-    {{!-- dynamically show Login/Logout by status --}}
-    <li>Login</li>
-    <li>Logout</li>
-    </menu>
-<menu class="secondary-menu">
-    {{!-- only show account and orders when logged in --}}
-    <li>Account</li>
-    <li>Orders</li>
-    <li>Cart</li>
-</menu>
-</span>
-</heading>
-<body>
+      href='https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap'
+      rel='stylesheet'
+    />
+    <link rel='stylesheet' type='text/css' href='/css/normalize.css' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css' />
+    <link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
+      integrity='sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
+    />
+    <link rel='stylesheet' type='text/css' href='/css/style.css' />
+  </head>
+  <heading>
+    <h1>The Green Hill</h1>
+    <span class='menu-span'>
+      <menu class='primary-menu'>
+        {{! only show account and orders when logged in }}
+        <li class='logout-button'>Logout</li>
+      </menu>
+    </span>
+  </heading>
+  <body>
     {{{body}}}
     <footer>
-        <p>© 2021 The Green Hill</p>
+      <p>© 2021 The Green Hill</p>
     </footer>
-</body>
+  </body>
 
 </html>
