@@ -6,7 +6,7 @@ const productdata = [
     weight: "",
     size: "",
     price: 1,
-    quantity; 14,
+    quantity: 14,
     in_stock: true,
     image: "",
     description: "",
