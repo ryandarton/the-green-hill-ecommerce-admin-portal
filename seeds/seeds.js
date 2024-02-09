@@ -1,8 +1,9 @@
 const sequelize = require('../config/connection');
-const { Admin, ProductModel } = require('../models');
+const { Admin } = require("../models");
+const Product = require("../models/productModel");
 
 const adminData = require('./adminData.JSON');
-const productData = require('./productData.JSON');
+const productData = require('./productData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -14,7 +15,7 @@ const seedDatabase = async () => {
 
   for (const product of productData) {
     try {
-      await ProductModel.create({
+      await Product.create({
         ...product,
       });
     } catch (error) {
@@ -23,7 +24,13 @@ const seedDatabase = async () => {
     }
   }
 
+  await Product.bulkCreate(productData, {
+    individualHooks: true,
+    returning: true,
+  });
+
   process.exit(0);
 };
 
 seedDatabase();
+
