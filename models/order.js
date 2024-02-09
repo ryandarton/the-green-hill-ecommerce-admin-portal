@@ -28,7 +28,7 @@ Order.init(
       allowNull: false,
     },
     orderTotal: {
-      type: DataTypes.DECIMAL(10,2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
     salesTax: {

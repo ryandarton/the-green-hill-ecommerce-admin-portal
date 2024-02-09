@@ -1,9 +1,9 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Customer extends Model {
   async checkPassword(password) {
-    return await bcrypt.compare(password, this.password)
+    return await bcrypt.compare(password, this.password);
   }
 }
 
@@ -43,7 +43,7 @@ Customer.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8, 20]
+        len: [8, 20],
       },
     },
     address_line1: {
@@ -88,16 +88,16 @@ Customer.init(
       validate: {
         isAlpha: true,
       },
-  },
+    },
     no_purchase: {
       type: DataTypes.INTEGER,
       allowNull: true,
-  },
-      subscriber: {
+    },
+    subscriber: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+    },
   },
-},
   {
     sequelize,
     hooks: {
@@ -108,8 +108,7 @@ Customer.init(
     },
     freezeTableName: true,
     underscored: true,
-    modelName: "customer",
-  }),
-
- 
-module.exports = Customer;
+    modelName: 'customer',
+  }
+),
+  (module.exports = Customer);
