@@ -1,8 +1,10 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
 const path = require('path');
 const url = require('url');
-const adminRoutes = require('./controllers/api/admin.js');
+
+
 const usersRoutes = require('./controllers/api/users.js')
 const apiRoutes = require('./controllers/index.js');
 const sequelize = require('./config/connection.js');
@@ -10,16 +12,34 @@ const sequelize = require('./config/connection.js');
 const app = express();
 const hbs = exphbs.create();
 
+
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', adminRoutes);
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+
 app.use('/users', usersRoutes);
 app.use('/', apiRoutes);
 
 app.get('/', (req, res) => {
-  res.render('homepage');
+  console.log('get ')
+  if (req.session.logged_in) {
+   console.log('yo')
+    res.render('homepage');
+  } else {
+    console.log('hello')
+    
+    res.render('login');
+  }
 });
 
 sequelize.sync({ force: false }).then(() => {
