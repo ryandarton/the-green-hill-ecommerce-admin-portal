@@ -1,35 +1,48 @@
-const router = require('express').Router();
-const { Customer } = require('../../models');
+const router = require("express").Router();
+const { Admin } = require("../../models");
 
-router.get('/login', (req, res) => {
-  res.render('login', { login: true });
+router.get("/login", (req, res) => {
+  res.render("login", { login: true });
 });
 
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
-    const loginData = await Customer.findOne({
+    console.log("Request body:", req.body);
+    const loginData = await Admin.findOne({
       where: { email: req.body.email },
     });
 
+    console.log("Login data:", loginData);
+
     if (!loginData) {
-      res.status(400).json({ message: 'Incorrect login, try again.' });
+      console.log("Incorrect login: User not found");
+      res.status(400).json({ message: "Incorrect login, try again." });
       return;
     }
 
     const validPassword = await loginData.checkPassword(req.body.password);
 
+    console.log("Password validation:", validPassword);
+
     if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password, try again.' });
+      console.log("Incorrect password");
+      res.status(400).json({ message: "Incorrect password, try again." });
+      return;
     }
 
     req.session.save(() => {
       req.session.login_id = loginData.id;
       req.session.logged_in = true;
-      res.json({ Customer: loginData, message: 'Logged In' });
+      console.log("Session saved successfully");
+      res.status(200).json({});
+      return;
+
     });
   } catch (err) {
-    res.status(400).json(err);
+    console.error("Login error:", err);
+    res.status(500).json(err);
   }
+  console.log("hello");
 });
 
 // router.get('/signup', (req, res) => {
