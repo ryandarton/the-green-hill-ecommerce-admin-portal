@@ -17,7 +17,7 @@ app.use('/admin', adminRoutes);
 app.use('/', apiRoutes);
 
 app.get('/', (req, res) => {
-  res.render('homepage');
+  res.render('login');
 });
 
 sequelize.sync({ force: false }).then(() => {
