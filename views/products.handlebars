@@ -8,6 +8,7 @@
     <th>Size</th>
     <th>Price</th>
     <th>Quantity</th>
+    <th>In Stock</th>
     <th>Actions</th>
   </tr>
   <!-- Table body with dynamic content -->
@@ -20,6 +21,15 @@
     <td>{{product.price}}</td>
     <td>{{product.quantity}}</td>
     <td>
+    {{#if in_stock}}
+    <!-- This code will be rendered if the condition (has_nuts) is truthy -->
+      <p class="in-stock">
+        Yes
+      </p>
+      <!-- Below, we end the #if helper -->
+    {{/if}}
+    </td>
+    <td>
       <!-- Example actions -->
       <button>Edit</button>
       <button>Delete</button>
@@ -30,7 +40,7 @@
  <!-- Add a new procust -->
 <div class="add-product-container">
     <h2>
-    New Product!
+   Add a new product
     </h2>
     <form class="new-product-form">
       <label for="product_name">
