@@ -32,28 +32,28 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.get('/signup', (req, res) => {
-  res.render('login', { login: false });
-});
+// router.get('/signup', (req, res) => {
+//   res.render('login', { login: false });
+// });
 
-router.post('/signup', async (req, res) => {
-  try {
-    const signUpData = await Customer.create(req.body);
+// router.post('/signup', async (req, res) => {
+//   try {
+//     const signUpData = await Customer.create(req.body);
 
-    req.session.save(() => {
-      req.session.signup_id = signUpData.id;
-      req.session.signed_up = true;
-      res.json({ customer: signUpData, message: 'Thanks for signing up! Your now logged in' });
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     req.session.save(() => {
+//       req.session.signup_id = signUpData.id;
+//       req.session.signed_up = true;
+//       res.json({ customer: signUpData, message: 'Thanks for signing up! Your now logged in' });
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
-router.post('/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.json({ message: 'Logged out successfully.' });
-  });
-});
+// router.post('/logout', (req, res) => {
+//   req.session.destroy(() => {
+//     res.json({ message: 'Logged out successfully.' });
+//   });
+// });
 
 module.exports = router;
