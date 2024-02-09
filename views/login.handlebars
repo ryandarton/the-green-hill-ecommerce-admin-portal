@@ -1,4 +1,4 @@
-{{#if login}}
+<!--{{#if login}} -->
 
 <h2>Login</h2>
 
@@ -8,12 +8,12 @@
         <button id="submit">Login</button>
     </form>
 <p>Don't have an account? <a href="/signup">Sign up Here!</a></p>
-{{else}}
+<!--{{else}}
     <h2>Sign up</h2>
     <form action="/signup" method="post">
         <input type="text" name="email" placeholder="Email">
         <input type="password" name="password" >
-        <button id="submit">Sign Up</button>
+        <button type="submit">Sign Up</button>
     </form>
     <p>Already have an account? <a href="/login">Log in Here!</a></p>
 
