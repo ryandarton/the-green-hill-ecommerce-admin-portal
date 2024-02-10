@@ -1,9 +1,9 @@
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 const { Admin } = require("../models");
-const Product = require("../models/productModel");
+const Product = require("../models/Product");
 
-const adminData = require('./adminData.JSON');
-const productData = require('./productData.json');
+const adminData = require("./adminData.JSON");
+const productData = require("./productData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -19,8 +19,7 @@ const seedDatabase = async () => {
         ...product,
       });
     } catch (error) {
-     
-      console.error('Error creating product:', error);
+      console.error("Error creating product:", error);
     }
   }
 
@@ -33,4 +32,3 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
-
