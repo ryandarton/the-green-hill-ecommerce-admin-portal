@@ -1,8 +1,8 @@
 const sequelize = require('../config/connection');
-const { Admin, ProductModel } = require('../models');
+const { Admin, Product } = require('../models');
 
-const adminData = require('./adminData.JSON');
-const productData = require('./productData.JSON');
+const adminData = require('./adminData.json');
+// const productData = require('./productData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -11,17 +11,18 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-
-  for (const product of productData) {
-    try {
-      await ProductModel.create({
-        ...product,
-      });
-    } catch (error) {
+console.log(admin)
+console.log(adminData)
+  // for (const product of productData) {
+  //   try {
+  //     await Product.create({
+  //       ...product,
+  //     });
+  //   } catch (error) {
      
-      console.error('Error creating product:', error);
-    }
-  }
+  //     console.error('Error creating product:', error);
+  //   }
+  // }
 
   process.exit(0);
 };
