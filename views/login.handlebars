@@ -1,20 +1,39 @@
-<!--{{#if login}} -->
+<video autoplay muted loop class='bg-video'>
+  <source src='/images/bees-flying-in-and-out-of-hive.webm' type='video/webm' />
+  <source src='/images/bees-flying-in-and-out-of-hive.mp4' type='video/mp4' />
+  Your browser does not support HTML5 video.
+</video>
 
-<h2>Login</h2>
-
-<form id="login-form" action="/login" method="post">
-        <input type="text" name="email" placeholder="Email" class="login-email" id="email">
-        <input type="password" name="password" placeholder="Password" class="login-password" id="password">
-        <button id="submit">Login</button>
-    </form>
-<p>Don't have an account? <a href="/signup">Sign up Here!</a></p>
-<!--{{else}}
-    <h2>Sign up</h2>
-    <form action="/signup" method="post">
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="password" >
-        <button type="submit">Sign Up</button>
-    </form>
-    <p>Already have an account? <a href="/login">Log in Here!</a></p>
-
-{{/if}}    
+<div class='login-wrapper'>
+  <div class='login-header'>
+    <h2>Login</h2>
+  </div>
+  <div class='control'>
+    <div id='login-form'>
+      <div class='field'>
+        <p class='control has-icons-left has-icons-right'>
+          <input id='email' class='input' type='email' placeholder='Email' />
+          <span class='icon is-small is-left'>
+            <i class='fas fa-envelope'></i>
+          </span>
+        </p>
+      </div>
+      <div class='field'>
+        <p class='control has-icons-left'>
+          <input id='password' class='input' type='password' placeholder='Password' />
+          <span class='icon is-small is-left'>
+            <i class='fas fa-lock'></i>
+          </span>
+        </p>
+      </div>
+      <div class='field'>
+        <p class='control'>
+          <button id='submit' class='button is-warning is-responsive is-outlined'>
+            Login
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <p class='no-account'>Don't have an account? <a href='/signup'>Sign up Here!</a></p>
+</div>
