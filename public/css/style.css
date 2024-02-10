@@ -49,6 +49,7 @@ menu {
   font-style: var(--primary-font-style);
   color: var(--primary-font-color);
   letter-spacing: var(--primary-text-spacing);
+  line-height: 200%;
 }
 
 menu {
