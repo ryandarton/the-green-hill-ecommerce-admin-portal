@@ -3,6 +3,7 @@
   <!-- Table headers -->
   <tr>
     <th>ID</th>
+    <th>Image</th>
     <th>Name</th>
     <th>Weight</th>
     <th>Size</th>
@@ -15,6 +16,7 @@
   {{#each products as |product| }}
   <tr>
     <td>{{product.id}}</td>
+    <td><img src="../public/images/{{product.image}}" alt="{{description}}"></td>
     <td>{{product.name}}</td>
     <td>{{product.weight}}</td>
     <td>{{product.size}}</td>
@@ -29,71 +31,10 @@
       <!-- Below, we end the #if helper -->
     {{/if}}
     </td>
-    <td>
-      <!-- Example actions -->
-      <button>Edit</button>
-      <button>Delete</button>
-    </td>
+<td>
+<input type="button" id="edit-btn" value="Edit" onclick="Edit(this)">
+<input type="button" id="delete-btn" value="Delete" onclick="Delete(this)">
+        </td>
   </tr>
   {{/each}}
-</table>
- <!-- Add a new procust -->
-<div class="add-product-container">
-    <h2>
-   Add a new product
-    </h2>
-    <form class="new-product-form">
-      <label for="product_name">
-        Product Name:
-      </label>
-      <br />
-      <textarea id="product_name" name="product_name" rows="2" cols="30">
-      {{name}}
-    </textarea>
-      <br />
-      <label for="weight">
-        Weight:
-      </label>
-      <br />
-      <textarea id="weight" name="weight" rows="5" cols="30">
-      {{weight}}
-    </textarea>
-      <br />
-      <label for="size">
-        Size:
-      </label>
-      <br />
-      <textarea id="size" name="size" rows="2" cols="30">
-      {{size}}
-    </textarea>
-         <br />
-      <label for="price">
-        Price:
-      </label>
-      <br />
-      <textarea id="price" name="price" rows="2" cols="30">
-      {{price}}
-    </textarea>
-         <br />
-      <label for="quantity">
-        Quantity:
-      </label>
-      <br />
-      <textarea id="quantity" name="quantity" rows="2" cols="30">
-      {{quantity}}
-    </textarea>
-    <br />
-     {{#if in_stock}}
-      <input type="checkbox" id="in_stock" name="in_stock" checked />
-      {{else}}
-      <input type="checkbox" id="in_stock" name="in_stock" />
-      {{/if}}
-      <label for="in_stock">
-        Check box if the product is in stock
-      </label>
-      <button type="submit" value="Submit">
-        Submit
-      </button>
-    </form>
-  </div>
-</div>
+  </table>
