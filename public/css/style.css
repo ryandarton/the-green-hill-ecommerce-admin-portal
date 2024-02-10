@@ -20,7 +20,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--primary-background-color);
 }
 
 h1 {
@@ -64,14 +63,19 @@ menu {
 
 heading {
   width: 100%;
+  z-index: 999;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   padding: 1em;
   margin: 0;
-  h1 {
-    margin: 0 3rem;
+
+  background-color: var(--primary-background-color);
+  h1,
+  .subheading {
+    margin: 0 1rem;
   }
   .menu-span {
     display: flex;
@@ -88,21 +92,31 @@ heading {
   }
 }
 
+footer {
+  background-color: var(--primary-background-color);
+  width: 100%;
+  z-index: 999;
+  text-align: center;
+  bottom: 0;
+}
+
 .bg-video {
-  position: relative;
+  position: fixed;
   width: 100vw;
-  background-size: cover;
+  height: 100vh;
+  object-fit: cover;
   background: no-repeat center;
   user-select: none;
   pointer-events: none;
 }
 
 .login-wrapper {
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  background-color: rgba(var(--secondary-background-color), 0.5);
+  background-color: rgba(var(--secondary-background-color), 0.75);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -137,4 +151,33 @@ input {
 .button.is-warning.is-outlined {
   color: var(--primary-font-color);
   border-color: var(--primary-font-color);
+}
+
+.no-account {
+  font-size: small;
+  margin: 0.5rem 0.5rem;
+}
+
+/* MEDIA */
+@media (max-width: 940px) {
+  .login-wrapper {
+    clip-path: none;
+    width: 90vw;
+    height: fit-content;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+  .subheading {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 1.5em;
+  }
 }
