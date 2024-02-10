@@ -1,10 +1,10 @@
 :root {
-  --header-font-family: 'Bitter', serif;
+  --header-font-family: "Bitter", serif;
   --header-font-weight: 400;
   --header-font-style: normal;
   --header-font-color: #2d3d34;
   --header-letter-spacing: 0.02em;
-  --primary-font-family: 'IBM Plex Mono', 'monospace', sans-serif;
+  --primary-font-family: "IBM Plex Mono", "monospace", sans-serif;
   --primary-font-weight: 300;
   --primary-font-style: normal;
   --primary-font-color: #2d3d34;
@@ -31,7 +31,9 @@ h1 {
 /* styling rules for p and buttons */
 p,
 button,
-menu {
+menu,
+#edit-btn,
+#delete-btn {
   font-family: var(--primary-font-family);
   font-weight: var(--primary-font-weight);
   font-style: var(--primary-font-style);
@@ -85,19 +87,29 @@ table {
   margin-top: 20px;
 }
 
-
-th, td {
+th,
+td {
   text-align: left;
   padding: 8px;
+  font-family: var(--primary-font-family);
+  font-weight: var(--primary-font-weight);
+  font-style: var(--primary-font-style);
+  color: var(--primary-font-color);
 }
-
 
 th {
   background-color: var(--secondary-background-color);
   color: var(--header-font-color);
 }
 
-
 tr:nth-child(even) {
   background-color: var(--primary-background-color);
+}
+img {
+  width: 50px;
+}
+
+textarea {
+  width: 250px;
+  height: 30px;
 }
