@@ -3,27 +3,40 @@
   <!-- Table headers -->
   <tr>
     <th>ID</th>
+    <th>Image</th>
     <th>Name</th>
     <th>Weight</th>
     <th>Size</th>
     <th>Price</th>
     <th>Quantity</th>
+    <th>In Stock</th>
     <th>Actions</th>
   </tr>
   <!-- Table body with dynamic content -->
-  {{#each products}}
+  {{#each products as |product| }}
   <tr>
-    <td>{{this.id}}</td>
-    <td>{{this.name}}</td>
-    <td>{{this.weight}}</td>
-    <td>{{this.size}}</td>
-    <td>${{this.price}}</td>
-    <td>{{this.quantity}}</td>
+    <td>{{product.id}}</td>
+    {{!-- image not working will go back on it later --}}
+    <td><img src="../public/images/{{product.image}}" alt="{{description}}"></td>
+    <td>{{product.name}}</td>
+    <td>{{product.weight}}</td>
+    <td>{{product.size}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.quantity}}</td>
     <td>
-      <!-- Example actions -->
-      <button>Edit</button>
-      <button>Delete</button>
+    {{#if in_stock}}
+    <!-- This code will be rendered if the condition (has_nuts) is truthy -->
+      <p class="in-stock">
+        Yes
+      </p>
+      <!-- Below, we end the #if helper -->
+    {{/if}}
     </td>
+<td>
+<input type="button" id="edit-btn" value="Edit" onclick="Edit(this)">
+<input type="button" id="delete-btn" value="Delete" onclick="Delete(this)">
+        </td>
   </tr>
   {{/each}}
-</table>
+  </table>
+  

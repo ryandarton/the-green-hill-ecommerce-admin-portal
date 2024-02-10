@@ -1,37 +1,17 @@
 const router = require("express").Router();
-const { Product } = require("../../models");
+const Product = require("../../models/productModel");
 
 // get all products
 router.get("/", async (req, res) => {
-
-  try {
-    const productsData = await Product.findAll();
-    res.status(200).json(productsData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// get one product
-router.get("/:id", async (req, res) => {
-
-  try {
-    const productData = await Product.findByPk(req.params.id);
-
-    if (!productData) {
-      res.status(404).json({ message: "No product was found with that id!" });
-      return;
-    }
-
-    res.status(200).json(productData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+    const productData = await Product.findAll().catch((err) => { 
+      res.json(err);
+    });
+    const products = productData.map((product) => product.get({ plain: true }));
+    res.render('products', { products });
+    });
 
 // create new product
 router.post("/", (req, res) => {
-
   Product.create(req.body)
     .then((product) => {
       res.status(200).json(product);
@@ -44,14 +24,13 @@ router.post("/", (req, res) => {
 
 // update product
 router.put("/:id", async (req, res) => {
-
   Product.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
     .then((product) => {
-    res.json(product);
+      res.json(product);
     })
     .catch((err) => {
       // console.log(err);
@@ -60,7 +39,6 @@ router.put("/:id", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-
   try {
     const productData = await Product.destroy({
       where: {
