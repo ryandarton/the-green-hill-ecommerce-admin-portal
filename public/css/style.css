@@ -61,7 +61,7 @@ menu {
   }
 }
 
-heading {
+header {
   width: 100%;
   z-index: 999;
   display: flex;
@@ -93,6 +93,7 @@ heading {
 }
 
 footer {
+  position: absolute;
   background-color: var(--primary-background-color);
   width: 100%;
   z-index: 999;
