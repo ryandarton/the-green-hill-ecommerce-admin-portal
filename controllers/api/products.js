@@ -1,14 +1,14 @@
 const router = require("express").Router();
-const Product = require("../../models/productModel");
+const Product = require("../../models/Product");
 
 // get all products
 router.get("/", async (req, res) => {
-    const productData = await Product.findAll().catch((err) => { 
-      res.json(err);
-    });
-    const products = productData.map((product) => product.get({ plain: true }));
-    res.render('products', { products });
-    });
+  const productData = await Product.findAll().catch((err) => {
+    res.json(err);
+  });
+  const products = productData.map((product) => product.get({ plain: true }));
+  res.render("products", { products });
+});
 
 // create new product
 router.post("/", (req, res) => {
@@ -50,8 +50,8 @@ router.delete("/:id", async (req, res) => {
       res.status(404).json({ message: "No product was found with that id!" });
       return;
     }
-
-    res.status(200).json(productData);
+    res.redirect("/");
+    // res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
   }
