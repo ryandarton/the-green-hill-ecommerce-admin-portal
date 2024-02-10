@@ -16,12 +16,12 @@ Product.init(
       allowNull: false,
     },
     weight: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     size: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     price: {
       type: DataTypes.INTEGER,
@@ -31,15 +31,23 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    subscribable: {
+    in_stock: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
     sequelize,
     freezeTableName: true,
-    modelName: 'product',
+    modelName: "product",
   }
 );
 

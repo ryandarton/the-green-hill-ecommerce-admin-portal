@@ -1,0 +1,29 @@
+<h1>Products</h1>
+<table>
+  <!-- Table headers -->
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Weight</th>
+    <th>Size</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Actions</th>
+  </tr>
+  <!-- Table body with dynamic content -->
+  {{#each products}}
+  <tr>
+    <td>{{this.id}}</td>
+    <td>{{this.name}}</td>
+    <td>{{this.weight}}</td>
+    <td>{{this.size}}</td>
+    <td>${{this.price}}</td>
+    <td>{{this.quantity}}</td>
+    <td>
+      <!-- Example actions -->
+      <button>Edit</button>
+      <button>Delete</button>
+    </td>
+  </tr>
+  {{/each}}
+</table>
