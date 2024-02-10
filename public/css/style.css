@@ -1,12 +1,12 @@
 :root {
-  --header-font-family: "Bitter", serif;
+  --header-font-family: 'Bitter', serif;
   --header-font-weight: 400;
   --header-font-style: normal;
   --header-font-color: #2d3d34;
   --header-font-size: 2.5em;
   --secondary-header-font-size: 1.5em;
   --header-letter-spacing: 0.02em;
-  --primary-font-family: "IBM Plex Mono", "monospace", sans-serif;
+  --primary-font-family: 'IBM Plex Mono', 'monospace', sans-serif;
   --primary-font-weight: 300;
   --primary-font-style: normal;
   --primary-font-color: #2d3d34;
@@ -166,7 +166,6 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-
 }
 
 th,
@@ -186,4 +185,28 @@ th {
 
 tr:nth-child(even) {
   background-color: var(--primary-background-color);
+}
+
+/* MEDIA */
+@media (max-width: 940px) {
+  .login-wrapper {
+    clip-path: none;
+    width: 90vw;
+    height: fit-content;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+  .subheading {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 1.5em;
+  }
 }
