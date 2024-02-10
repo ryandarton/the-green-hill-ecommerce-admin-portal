@@ -4,6 +4,8 @@
 //   }
 // }
 
+// const { Server } = require("mysql2/typings/mysql/lib/Server");
+
 // function createButtons(bool, td) {
 //   if (bool) {
 //     var Edit = document.createElement('input');
@@ -100,7 +102,7 @@
 // }
 
 const deleteProduct = async (id) => {
-  let id = await fetch(`/api/products/${id}`, {
+  await fetch(`/api/products/${id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
@@ -112,6 +114,9 @@ deleteBtn.addEventListener("click", function (e) {
   e.stopPropagation();
   console.log("clicked");
   const productId = e.target.dataset.id;
+  console.log(e.target);
+  console.log(e.target.dataset);
+  console.log(productId);
   deleteProduct(productId);
 
   // .then(() => {

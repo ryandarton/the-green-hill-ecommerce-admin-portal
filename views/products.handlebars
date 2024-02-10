@@ -1,7 +1,7 @@
 <h1>Products</h1>
 <table>
   <!-- Table headers -->
-  <tr>
+  <tr id="header">
     <th>ID</th>
     <th>Image</th>
     <th>Name</th>
@@ -13,30 +13,35 @@
     <th>Actions</th>
   </tr>
   <!-- Table body with dynamic content -->
-  {{#each products as |product| }}
-  <tr>
-    <td>{{product.id}}</td>
-    {{!-- image not working will go back on it later --}}
-    <td><img src="../public/images/{{product.image}}" alt="{{description}}"></td>
-    <td>{{product.name}}</td>
-    <td>{{product.weight}}</td>
-    <td>{{product.size}}</td>
-    <td>{{product.price}}</td>
-    <td>{{product.quantity}}</td>
-    <td>
-    {{#if in_stock}}
-    <!-- This code will be rendered if the condition (has_nuts) is truthy -->
-      <p class="in-stock">
-        Yes
-      </p>
-      <!-- Below, we end the #if helper -->
-    {{/if}}
-    </td>
-<td>
-<input type="button" id="edit-btn" value="Edit" onclick="Edit(this)">
-<input type="button" id="delete-btn" value="Delete" onclick="Delete(this)">
-        </td>
-  </tr>
+  {{#each products as |product|}}
+    <tr class="data">
+      <td>{{product.id}}</td>
+      {{! image not working will go back on it later }}
+      <td><img src="/images/{{product.image}}" alt="{{description}}" /></td>
+      <td>{{product.name}}</td>
+      <td>{{product.weight}}</td>
+      <td>{{product.size}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.quantity}}</td>
+      <td>
+        {{#if in_stock}}
+          <!-- This code will be rendered if the condition (has_nuts) is truthy -->
+          <p class="in-stock">
+            Yes
+          </p>
+          <!-- Below, we end the #if helper -->
+        {{/if}}
+      </td>
+      <td>
+        <input
+          type="button"
+          id="edit-btn"
+          value="Edit"
+          data-id="{{product.id}}"
+        />
+        <input type="button" id="delete-btn" value="Delete" data-id="{{product.id}}"/>
+      </td>
+    </tr>
   {{/each}}
-  </table>
-  
+</table>
+<script src="/js/product-page.js"></script>
