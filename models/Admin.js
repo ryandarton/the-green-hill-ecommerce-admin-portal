@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 class Admin extends Model {
   async checkPassword(password) {
@@ -28,10 +28,9 @@ Admin.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8, 20],
+        len: [6, 20],
       },
     },
-  
   },
   {
     sequelize,
@@ -45,5 +44,6 @@ Admin.init(
     underscored: true,
     modelName: 'admin',
   }
-),
-  module.exports = Admin;
+);
+
+module.exports = Admin;
