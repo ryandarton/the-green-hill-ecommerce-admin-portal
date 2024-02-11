@@ -35,31 +35,42 @@ $(document).on("click", ".edit", function () {
   $(this).hide();
 });
 
+const updateProduct = (id, data) => {
+  fetch(`/api/products/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+};
+
 $(document).on("click", ".save", function () {
   $("input").each(function () {
     var content = $(this).val();
     $(this).html(content);
-    // console.log(content);
     $(this).contents().unwrap();
   });
   $(this).siblings(".edit").show();
   $(this).siblings("#delete-btn").show();
   $(this).hide();
 
+  const productId = $(this).parent().siblings(".id").html();
+  console.log(productId);
 
+const product_name = $(this).parent().siblings(".name").html();
+const product_weight = $(this).parent().siblings(".weight").html();
+const product_size = $(this).parent().siblings(".size").html();
+const product_price = $(this).parent().siblings(".price").html();
+const product_quantity = $(this).parent().siblings(".quantity").html();
 
+  const updatedProduct = {
+    name: product_name,
+    weight: product_weight,
+    size: product_size,
+    price: product_price,
+    quantity: product_quantity,
+  };
 
-  
+  console.log(updatedProduct);
+
+updateProduct(productId, updatedProduct);
 });
-
-// $(document).on("click", ".delete", function () {
-//   $(this).parents("tr").remove();
-// });
-
-// $(".add").click(function () {
-//   $(this)
-//     .parents("table")
-//     .append(
-//       '<tr><td class="data"></td><td class="data"></td><td class="data"></td><td><button class="save">Save</button><button class="edit">Edit</button> <button class="delete">Delete</button></td></tr>'
-//     );
-// });
