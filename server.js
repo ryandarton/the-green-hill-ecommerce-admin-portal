@@ -1,13 +1,12 @@
-const express = require("express");
-const exphbs = require("express-handlebars");
-const session = require("express-session");
-const path = require("path");
-const url = require("url");
+const express = require('express');
+const exphbs = require('express-handlebars');
+const session = require('express-session');
+const path = require('path');
+const url = require('url');
 
-const usersRoutes = require("./controllers/api/users.js");
-const productRoutes = require("./controllers/api/products");
-const apiRoutes = require("./controllers/index.js");
-const sequelize = require("./config/connection.js");
+const usersRoutes = require('./controllers/api/users.js');
+const productRoutes = require('./controllers/api/products');
+const sequelize = require('./config/connection.js');
 
 const app = express();
 const hbs = exphbs.create();
@@ -27,9 +26,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/users", usersRoutes);
-app.use("/products", productRoutes);
-app.use("/", apiRoutes);
+app.use('/api/users', usersRoutes);
+app.use('/products', productRoutes);
 
 app.get("/", (req, res) => {
   console.log("get ");
