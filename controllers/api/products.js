@@ -24,7 +24,13 @@ router.post("/", (req, res) => {
 
 // update product
 router.put("/:id", async (req, res) => {
-  Product.update(req.body, {
+  Product.update({
+      name: req.body.name,
+      weight: req.body.weight,
+      size: req.body.size,
+      price: req.body.price,
+      quantity: req.body.quantity,
+    }, {
     where: {
       id: req.params.id,
     },
@@ -33,7 +39,6 @@ router.put("/:id", async (req, res) => {
       res.json(product);
     })
     .catch((err) => {
-      // console.log(err);
       res.status(400).json(err);
     });
 });
