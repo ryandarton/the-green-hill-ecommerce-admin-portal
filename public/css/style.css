@@ -161,32 +161,6 @@ input {
   margin: 0.5rem 0.5rem;
 }
 
-/*  product table style */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 8px;
-  font-family: var(--primary-font-family);
-  font-weight: var(--primary-font-weight);
-  font-style: var(--primary-font-style);
-  color: var(--primary-font-color);
-}
-
-th {
-  background-color: var(--secondary-background-color);
-  color: var(--header-font-color);
-}
-
-tr:nth-child(even) {
-  background-color: var(--primary-background-color);
-}
-
 /* MEDIA */
 @media (max-width: 940px) {
   .login-wrapper {
