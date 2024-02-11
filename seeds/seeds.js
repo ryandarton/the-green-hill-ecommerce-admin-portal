@@ -1,17 +1,23 @@
-const sequelize = require("../config/connection");
-const { Admin } = require("../models");
-const Product = require("../models/Product");
+const sequelize = require('../config/connection');
+const Admin = require('../models/Admin');
+const Product = require('../models/Product');
 
-const adminData = require("./adminData.JSON");
-const productData = require("./productData.json");
+const adminData = require('./adminData.json');
+const productData = require('./productData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const admin = await Admin.bulkCreate(adminData, {
-    individualHooks: true,
-    returning: true,
-  });
+  for (const user of adminData) {
+    try {
+      await Admin.create({
+        ...user,
+      });
+    } catch (error) {
+      console.error('Error creating user:', error);
+    }
+  }
+  console.log('synced users');
 
   for (const product of productData) {
     try {
@@ -19,14 +25,10 @@ const seedDatabase = async () => {
         ...product,
       });
     } catch (error) {
-      console.error("Error creating product:", error);
+      console.error('Error creating product:', error);
     }
   }
-
-  await Product.bulkCreate(productData, {
-    individualHooks: true,
-    returning: true,
-  });
+  console.log('synced products');
 
   process.exit(0);
 };
