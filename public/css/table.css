@@ -24,6 +24,7 @@ td {
 th {
   background-color: var(--secondary-background-color);
   color: var(--header-font-color);
+  font-weight: 700;
 }
 
 tr:nth-child(even) {
