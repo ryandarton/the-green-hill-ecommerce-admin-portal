@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   console.log('get logged in status');
   if (req.session.logged_in) {
     console.log('logged in!');
-    res.render('products');
+    res.redirect('/products');
   } else {
     console.log('need to log in');
     res.render('login');
