@@ -1,47 +1,47 @@
 <h1>Products</h1>
 <table>
   <tbody>
-  <!-- Table headers -->
-  <tr id="header">
-    <th>ID</th>
-    {{!-- <th>Image</th> --}}
-    <th>Name</th>
-    <th>Weight</th>
-    <th>Size</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    {{!-- <th>In Stock</th> --}}
-    <th>Actions</th>
-  </tr>
-  <!-- Table body with dynamic content -->
-  {{#each products as |product|}}
-    <tr class="data">
-      <td class="id">{{product.id}}</td>
-      {{! image not working will go back on it later }}
-      {{!-- <td class=""><img
+    <!-- Table headers -->
+    <tr id='header'>
+      <th>ID</th>
+      {{! <th>Image</th> }}
+      <th>Name</th>
+      <th>Weight</th>
+      <th>Size</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      {{! <th>In Stock</th> }}
+      <th>Actions</th>
+    </tr>
+    <!-- Table body with dynamic content -->
+    {{#each products as |product|}}
+      <tr class='data'>
+        <td class='id'>{{product.id}}</td>
+        {{! image not working will go back on it later }}
+        {{!-- <td class=""><img
           src="/public/images/{{product.image}}"
           alt="{{description}}"
         /></td> --}}
-      <td class="data name">{{product.name}}</td>
-      <td class="data weight">{{product.weight}}</td>
-      <td class="data size">{{product.size}}</td>
-      <td class="data price">{{product.price}}</td>
-      <td class="data quantity">{{product.quantity}}</td>
-      {{!-- <td class="in-stock">
+        <td class='data name'>{{product.name}}</td>
+        <td class='data weight'>{{product.weight}}</td>
+        <td class='data size'>{{product.size}}</td>
+        <td class='data price'>{{product.price}}</td>
+        <td class='data quantity'>{{product.quantity}}</td>
+        {{!-- <td class="in-stock">
         {{#if in_stock}}
           <p class="in-stock">
             Yes
           </p>
         {{/if}}
       </td> --}}
-      <td>
-        <button id="save-btn" class="save" data-id="{{product.id}}">Save</button>
-        <button id="edit-btn" class="edit" data-id="{{product.id}}">Edit</button>
-        <button id="delete-btn" class="" data-id="{{product.id}}">Delete</button>
-      </td>
-    </tr>
-  {{/each}}
+        <td>
+          <button id='save-btn' class='save' data-id='{{product.id}}'>Save</button>
+          <button id='edit-btn' class='edit' data-id='{{product.id}}'>Edit</button>
+          <button id='delete-btn' class='' data-id='{{product.id}}'>Delete</button>
+        </td>
+      </tr>
+    {{/each}}
   </tbody>
 </table>
- 
-<script src="/js/product-page.js"></script>
+
+<script src='/js/product-page.js'></script>
