@@ -31,14 +31,16 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    in_stock: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    // not working- will fix next
+    
+    // in_stock: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: true,
+    // },
+    // image: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
   },
   {
     sequelize,
