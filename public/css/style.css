@@ -53,6 +53,11 @@ menu,
   line-height: 200%;
 }
 
+p {
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
 menu {
   list-style: none;
   li {
