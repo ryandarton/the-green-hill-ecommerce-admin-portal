@@ -5,7 +5,7 @@ const path = require('path');
 const url = require('url');
 
 const usersRoutes = require('./controllers/api/users.js');
-const productRoutes = require('./controllers/api/products');
+const productRoutes = require('./controllers/api/products.js');
 const sequelize = require('./config/connection.js');
 
 const app = express();
@@ -27,13 +27,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/users', usersRoutes);
-app.use('/products', productRoutes);
+app.use('/api/products', productRoutes);
 
 app.get('/', (req, res) => {
   console.log('get logged in status');
   if (req.session.logged_in) {
     console.log('logged in!');
-    res.redirect('/products');
+    res.redirect('/api/products');
   } else {
     console.log('need to log in');
     res.render('login');
