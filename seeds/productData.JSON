@@ -1,5 +1,6 @@
 [
   {
+    "id":1,
     "name": "8oz Round Jar of Honey",
     "weight": "2lbs",
     "size": "Small",
@@ -9,6 +10,7 @@
     "image": "8oz-round-jar-honey.jpg"
   },
   {
+    "id": 2,
     "name": "12oz Hex Jar of Honey",
     "weight": "2.5lbs",
     "size": "Small",
@@ -18,6 +20,7 @@
     "image": "12oz-hex-jar-honey.jpg"
   },
   {
+    "id": 3,
     "name": "Comb Honey",
     "weight": "1lb",
     "size": "Small",
@@ -27,6 +30,7 @@
     "image": "comb-honey.jpg"
   },
   {
+    "id": 4,
     "name": "Carton of Multi-Colored Eggs (18)",
     "weight": "1lb",
     "size": "Medium",
@@ -36,6 +40,7 @@
     "image": "carton-of-multi-colored-eggs.jpg"
   },
   {
+    "id": 5,
     "name": "1 Dozen Multi-Colored Eggs (12)",
     "weight": "1lb",
     "size": "Medium",
@@ -45,6 +50,7 @@
     "image": "multi-colored-eggs.jpg"
   },
   {
+    "id": 6,
     "name": "1/2 Dozen Multi-Colored Eggs (6)",
     "weight": "1lb",
     "size": "Medium",

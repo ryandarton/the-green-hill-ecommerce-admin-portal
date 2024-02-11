@@ -24,7 +24,13 @@ router.post("/", (req, res) => {
 
 // update product
 router.put("/:id", async (req, res) => {
-  Product.update(req.body, {
+  Product.update({
+      name: req.body.name,
+      weight: req.body.weight,
+      size: req.body.size,
+      price: req.body.price,
+      quantity: req.body.quantity,
+    }, {
     where: {
       id: req.params.id,
     },
@@ -33,7 +39,6 @@ router.put("/:id", async (req, res) => {
       res.json(product);
     })
     .catch((err) => {
-      // console.log(err);
       res.status(400).json(err);
     });
 });
@@ -50,8 +55,8 @@ router.delete("/:id", async (req, res) => {
       res.status(404).json({ message: "No product was found with that id!" });
       return;
     }
-
-    res.status(200).json(productData);
+    res.redirect("/");
+    // res.status(200).json(productData);
   } catch (err) {
     res.status(500).json(err);
   }
