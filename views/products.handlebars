@@ -57,6 +57,29 @@
         </td>
       </tr>
     {{/each}}
+    <tr class='add-button-row'>
+      <td>
+        <button class='button is-primary fas fa-solid fa-plus' id='add-product'></button>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class='new-product-row'>
+      <td class='id'></td>
+      <td class='name'><input class='input' value='' /></td>
+      <td class='weight'><input class='input' value='' /></td>
+      <td class='size'><input class='input' value='' /></td>
+      <td class='price'><input class='input' value='' /></td>
+      <td class='quantity'><input class='input' value='' /></td>
+      <td>
+        <button id='save-to-db-btn' class='button is-primary'>Save</button>
+        <button id='cancel-new-product-btn' class='button is-warning'>Cancel</button>
+      </td>
+    </tr>
   </tbody>
 </table>
 

@@ -51,32 +51,40 @@ th {
   font-weight: 700;
 }
 
-td.data.quantity {
+td.quantity {
   text-align: center;
   max-width: 7rem;
   min-width: 5rem;
 }
 
-td.data.price {
+td.price {
   text-align: center;
   max-width: 5rem;
   min-width: 5rem;
 }
 
-td.data.size {
+td.size {
   text-align: center;
   max-width: 7rem;
   min-width: 5rem;
 }
 
-td.data.weight {
+td.weight {
   text-align: center;
   max-width: 7rem;
   min-width: 5rem;
+}
+
+tr.add-button-row td {
+  border: none;
 }
 
 tr:nth-child(even) {
   background-color: var(--primary-background-color);
+}
+
+tr.new-product-row {
+  background-color: hsla(171, 100%, 41%, 0.3);
 }
 
 /* MOBILE */

@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', function (e) {
       e.preventDefault();
       const productId = this.dataset.id;
-      const userConfirmation = confirm(
-        'Are you sure you want to delete this product?'
-      );
+      const userConfirmation = confirm('Are you sure you want to delete this product?');
       if (userConfirmation) {
         fetch(`/api/products/${productId}`, {
           method: 'DELETE',
@@ -32,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 $('.save').hide();
 $('.cancel').hide();
+$('.new-product-row').hide();
 
 // EDIT FUNCTION
 $(document).on('click', '.edit', function () {
@@ -53,6 +52,7 @@ $(document).on('click', '.edit', function () {
   $(this).hide();
 });
 
+// UPDATE FUNCTION
 const updateProduct = (id, data) => {
   fetch(`/api/products/${id}`, {
     method: 'PUT',
@@ -61,6 +61,7 @@ const updateProduct = (id, data) => {
   });
 };
 
+// EDIT SAVE FUNCTION
 $(document).on('click', '.save', function () {
   $(this)
     .closest('tr')
@@ -97,6 +98,7 @@ $(document).on('click', '.save', function () {
   updateProduct(productId, updatedProduct);
 });
 
+// CANCEL FUNCTION
 $(document).on('click', '.cancel', function () {
   $(this)
     .parent()
@@ -114,7 +116,85 @@ $(document).on('click', '.cancel', function () {
   $(this).hide();
 });
 
-// When the button with the id="close-message" is clicked, the display of the element with the class="message" is set to "none"
+// ADD PRODUCT FORM EXPAND FUNCTION
+$(document).on('click', '#add-product', function () {
+  $('.new-product-row').show();
+  $('.add-button-row').hide();
+  $(this).siblings('#save-to-db-button').show();
+  $(this).siblings('#cancel-new-product-btn').show();
+  // got to the bottom of the page
+  window.scrollTo(0, document.body.scrollHeight);
+
+  $(document).on('click', '#cancel-new-product-btn', function () {
+    $(this)
+      .closest('tr')
+      .find('input')
+      .each(function () {
+        $(this).val('');
+      });
+    $('.new-product-row').hide();
+    $('.add-button-row').show();
+  });
+});
+
+// ADD NEW PRODUCT TO DB FUNCTION
+const addProduct = (productData) => {
+  fetch('/api/products', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(productData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+};
+
+// SAVE NEW PRODUCT FUNCTION
+$(document).on('click', '#save-to-db-btn', function () {
+  const product_Id = 0;
+  const product_name = $(this).closest('tr').find('.name input').val();
+  const product_weight = $(this).closest('tr').find('.weight input').val();
+  const product_size = $(this).closest('tr').find('.size input').val();
+  const product_price = $(this).closest('tr').find('.price input').val();
+  const product_quantity = $(this).closest('tr').find('.quantity input').val();
+
+  // Check if any field is empty
+  if (!product_name || !product_weight || !product_size || !product_price || !product_quantity) {
+    alert('All fields are required');
+    return;
+  }
+  // check if quantity is a number
+  if (isNaN(product_quantity)) {
+    alert('Quantity must be a number');
+    return;
+  }
+
+  const productData = {
+    id: product_Id,
+    name: product_name,
+    weight: product_weight,
+    size: product_size,
+    price: product_price,
+    quantity: product_quantity,
+  };
+  addProduct(productData);
+  $('.new-product-row').hide();
+  $('.add-button-row').hide();
+  $(this).siblings('#save-to-db-button').hide();
+  $(this).siblings('#cancel-new-product-btn').hide();
+  // refresh the page to reflect the new product
+  // wait for 1 second before refreshing the page
+  setTimeout(() => {
+    location.reload();
+  }, 3000);
+  location.reload();
+});
+
+// CLOSE MESSAGE FUNCTION
 $('#close-message').on('click', function () {
   $('.message').css('display', 'none');
 });
