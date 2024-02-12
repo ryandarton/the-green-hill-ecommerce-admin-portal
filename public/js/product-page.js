@@ -32,7 +32,7 @@ $(document).on('click', '.edit', function () {
       // store the original content incase they hit cancel
       $(this).data('original-content', content);
       // console.log(content);
-      $(this).html('<input value="' + content + '" />');
+      $(this).html('<input class="input" value="' + content + '" />');
       // console.log(this);
     });
 
