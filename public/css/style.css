@@ -58,7 +58,7 @@ menu {
   li {
     padding: 0.5em;
   }
-  .logout-button {
+  #logout-button {
     display: none;
   }
 }
