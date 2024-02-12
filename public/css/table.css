@@ -37,6 +37,26 @@ th {
   font-weight: 700;
 }
 
+td.data.quantity {
+  text-align: center;
+  max-width: 7rem;
+}
+
+td.data.price {
+  text-align: center;
+  max-width: 5rem;
+}
+
+td.data.size {
+  text-align: center;
+  max-width: 7rem;
+}
+
+td.data.weight {
+  text-align: center;
+  max-width: 7rem;
+}
+
 tr:nth-child(even) {
   background-color: var(--primary-background-color);
 }
