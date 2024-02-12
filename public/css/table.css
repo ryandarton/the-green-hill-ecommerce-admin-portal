@@ -1,0 +1,50 @@
+/*  product table style */
+
+.mobile {
+    width: 95vw;
+    display: none;
+}
+
+.message-header-text{
+  font-weight: 700;
+}
+
+table {
+  width: 95vw;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  font-family: var(--primary-font-family);
+  font-weight: var(--primary-font-weight);
+  font-style: var(--primary-font-style);
+  color: var(--primary-font-color);
+}
+
+th {
+  background-color: var(--secondary-background-color);
+  color: var(--header-font-color);
+  font-weight: 700;
+}
+
+tr:nth-child(even) {
+  background-color: var(--primary-background-color);
+}
+
+@media (max-width: 768px) {
+  .mobile {
+    display: inline;
+    background-color: var(--secondary-background-color);
+  }
+}
+```
