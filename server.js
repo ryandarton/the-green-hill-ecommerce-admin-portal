@@ -11,6 +11,14 @@ const sequelize = require('./config/connection.js');
 const app = express();
 const hbs = exphbs.create();
 
+const checkLoggedIn = (req, res, next) => {
+  if (!req.session.logged_in) {
+    res.redirect('/');
+  } else {
+    next();
+  }
+};
+
 app.use(
   session({
     secret: 'your-secret-key',
@@ -27,7 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/users', usersRoutes);
-app.use('/api/products', productRoutes);
+app.use('/api/products', checkLoggedIn, productRoutes);
 
 app.use((req, res, next) => {
   res.locals.loggedIn = req.session.logged_in || false;
@@ -41,10 +49,9 @@ app.get('/', (req, res) => {
     res.redirect('/api/products');
   } else {
     console.log('need to log in');
-    res.render('login', {loggedIn: req.session.logged_in});
+    res.render('login', { loggedIn: req.session.logged_in });
   }
 });
-
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(3000, () => {
