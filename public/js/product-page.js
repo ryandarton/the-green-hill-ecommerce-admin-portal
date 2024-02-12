@@ -162,6 +162,17 @@ $(document).on('click', '#save-to-db-btn', function () {
   const product_price = $(this).closest('tr').find('.price input').val();
   const product_quantity = $(this).closest('tr').find('.quantity input').val();
 
+  // Check if any field is empty
+  if (!product_name || !product_weight || !product_size || !product_price || !product_quantity) {
+    alert('All fields are required');
+    return;
+  }
+  // check if quantity is a number
+  if (isNaN(product_quantity)) {
+    alert('Quantity must be a number');
+    return;
+  }
+
   const productData = {
     id: product_Id,
     name: product_name,
@@ -175,6 +186,7 @@ $(document).on('click', '#save-to-db-btn', function () {
   $('.add-button-row').hide();
   $(this).siblings('#save-to-db-button').hide();
   $(this).siblings('#cancel-new-product-btn').hide();
+  // refresh the page to reflect the new product
   location.reload();
 });
 
