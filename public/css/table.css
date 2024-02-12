@@ -1,11 +1,11 @@
 /*  product table style */
 
 .mobile {
-    width: 95vw;
-    display: none;
+  width: 95vw;
+  display: none;
 }
 
-.message-header-text{
+.message-header-text {
   font-weight: 700;
 }
 
@@ -19,6 +19,12 @@ table {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+}
+
+.table tbody {
+  background-color: var(--tertiary-background-color);
+  padding: 20px;
+  border-radius: 30px;
 }
 
 th,
@@ -37,14 +43,34 @@ th {
   font-weight: 700;
 }
 
+td.data.quantity {
+  text-align: center;
+  max-width: 7rem;
+}
+
+td.data.price {
+  text-align: center;
+  max-width: 5rem;
+}
+
+td.data.size {
+  text-align: center;
+  max-width: 7rem;
+}
+
+td.data.weight {
+  text-align: center;
+  max-width: 7rem;
+}
+
 tr:nth-child(even) {
   background-color: var(--primary-background-color);
 }
 
+/* MOBILE */
 @media (max-width: 768px) {
   .mobile {
     display: inline;
     background-color: var(--secondary-background-color);
   }
 }
-```
