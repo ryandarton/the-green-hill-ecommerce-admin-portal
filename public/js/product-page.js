@@ -20,6 +20,7 @@ deleteBtn.addEventListener('click', function (e) {
 });
 
 $('.save').hide();
+$('.cancel').hide();
 
 // EDIT FUNCTION
 $(document).on('click', '.edit', function () {
@@ -28,12 +29,15 @@ $(document).on('click', '.edit', function () {
     .siblings('td.data')
     .each(function () {
       var content = $(this).html();
+      // store the original content incase they hit cancel
+      $(this).data('original-content', content);
       // console.log(content);
       $(this).html('<input value="' + content + '" />');
       // console.log(this);
     });
 
   $(this).siblings('.save').show();
+  $(this).siblings('.cancel').show();
   $(this).siblings('#delete-btn').hide();
   $(this).hide();
 });
@@ -47,13 +51,17 @@ const updateProduct = (id, data) => {
 };
 
 $(document).on('click', '.save', function () {
-  $('input').each(function () {
-    var content = $(this).val();
-    $(this).html(content);
-    $(this).contents().unwrap();
-  });
+  $(this)
+    .closest('tr')
+    .find('input')
+    .each(function () {
+      var content = $(this).val();
+      $(this).html(content);
+      $(this).contents().unwrap();
+    });
   $(this).siblings('.edit').show();
   $(this).siblings('#delete-btn').show();
+  $(this).siblings('.cancel').hide();
   $(this).hide();
 
   const productId = $(this).parent().siblings('.id').html();
@@ -76,6 +84,23 @@ $(document).on('click', '.save', function () {
   console.log(updatedProduct);
 
   updateProduct(productId, updatedProduct);
+});
+
+$(document).on('click', '.cancel', function () {
+  $(this)
+    .parent()
+    .siblings('td.data')
+    .each(function () {
+      // Retrieve the original content
+      var originalContent = $(this).data('original-content');
+      // Set the original content as the HTML content
+      $(this).html(originalContent);
+    });
+
+  $(this).siblings('.edit').show();
+  $(this).siblings('#delete-btn').show();
+  $(this).siblings('.save').hide();
+  $(this).hide();
 });
 
 // When the button with the id="close-message" is clicked, the display of the element with the class="message" is set to "none"
