@@ -52,13 +52,12 @@ router.delete("/:id", async (req, res) => {
     });
 
     if (!productData) {
-      res.status(404).json({ message: "No product was found with that id!" });
-      return;
+      return res.status(404).json({ message: "No product was found with that id!" });
     }
-    res.redirect("/");
-    // res.status(200).json(productData);
+    return res.status(200).json({ message: "Product deleted successfully" });
   } catch (err) {
-    res.status(500).json(err);
+    console.error(err);
+    res.status(500).json({ message: "Failed to delete the product", error: err });
   }
 });
 
