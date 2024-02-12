@@ -29,6 +29,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/users', usersRoutes);
 app.use('/api/products', productRoutes);
 
+app.use((req, res, next) => {
+  res.locals.loggedIn = req.session.logged_in || false;
+  next();
+});
+
 app.get('/', (req, res) => {
   console.log('get logged in status');
   if (req.session.logged_in) {
@@ -36,9 +41,10 @@ app.get('/', (req, res) => {
     res.redirect('/api/products');
   } else {
     console.log('need to log in');
-    res.render('login');
+    res.render('login', {loggedIn: req.session.logged_in});
   }
 });
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(3000, () => {
