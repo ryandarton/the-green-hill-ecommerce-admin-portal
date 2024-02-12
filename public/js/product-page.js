@@ -1,22 +1,33 @@
-const deleteBtn = document.getElementById('delete-btn');
 const editBtn = document.getElementById('edit-btn');
-
-const deleteProduct = (id) => {
-  fetch(`/api/products/${id}`, {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
+//delete function
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.delete-btn').forEach((button) => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      const productId = this.dataset.id;
+      const userConfirmation = confirm(
+        'Are you sure you want to delete this product?'
+      );
+      if (userConfirmation) {
+        fetch(`/api/products/${productId}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+        })
+          .then((response) => {
+            if (response.ok) {
+              console.log('Product deleted successfully');
+              location.reload(); // Reload the page to reflect the deletion
+            } else {
+              alert('Failed to delete the product.');
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+            alert('An error occurred while deleting the product.');
+          });
+      }
+    });
   });
-};
-
-deleteBtn.addEventListener('click', function (e) {
-  e.stopPropagation();
-  console.log('clicked');
-  const productId = e.target.dataset.id;
-  console.log(e.target);
-  console.log(e.target.dataset);
-  console.log(productId);
-  deleteProduct(productId);
-  location.reload();
 });
 
 $('.save').hide();

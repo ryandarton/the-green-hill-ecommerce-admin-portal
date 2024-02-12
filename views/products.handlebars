@@ -8,7 +8,8 @@
   </div>
   <div class='message-body'>
     <p>
-      This page is best viewed on a desktop or latpot. The table is not fun to navigate on a mobile device.
+      This page is best viewed on a desktop or latpot. The table is not fun to
+      navigate on a mobile device.
     </p>
   </div>
 </article>
@@ -48,10 +49,26 @@
         {{/if}}
       </td> --}}
         <td>
-          <button id='save-btn' class='save button is-primary' data-id='{{product.id}}'>Save</button>
-          <button id='cancel-btn' class='cancel button is-warning' data-id='{{product.id}}'>Cancel</button>
-          <button id='edit-btn' class='edit button is-warning' data-id='{{product.id}}'>Edit</button>
-          <button id='delete-btn' class='button is-danger' data-id='{{product.id}}'>Delete</button>
+          <button
+            id='save-btn'
+            class='save button is-primary'
+            data-id='{{product.id}}'
+          >Save</button>
+          <button
+            id='cancel-btn'
+            class='cancel button is-warning'
+            data-id='{{product.id}}'
+          >Cancel</button>
+          <button
+            id='edit-btn'
+            class='edit button is-warning'
+            data-id='{{product.id}}'
+          >Edit</button>
+          <button
+            class='delete-btn button is-danger'
+            id='delete-btn'
+            data-id='{{product.id}}'
+          >Delete</button>
         </td>
       </tr>
     {{/each}}
