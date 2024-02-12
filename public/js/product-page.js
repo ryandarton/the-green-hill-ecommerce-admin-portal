@@ -187,6 +187,10 @@ $(document).on('click', '#save-to-db-btn', function () {
   $(this).siblings('#save-to-db-button').hide();
   $(this).siblings('#cancel-new-product-btn').hide();
   // refresh the page to reflect the new product
+  // wait for 1 second before refreshing the page
+  setTimeout(() => {
+    location.reload();
+  }, 3000);
   location.reload();
 });
 
