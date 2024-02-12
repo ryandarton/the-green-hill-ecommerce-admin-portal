@@ -45,7 +45,8 @@ This website is be used to manage the inventory of the Greemhill business.
 
 # Screenshot
 
-![Alt text](<./assets/images/Fists of Forecast.png>)
+![Homepage](./public/assets/Homepage.png)
+![Product page](./public/assets/ProductsPage.png)
 
 # Deployed
 
@@ -57,7 +58,7 @@ We used some code from these sources as a base for some of our work.
 
 - For editable row: https://codepen.io/lookininward/pen/zYOQjZM
 
-We also consulted
+We also consulted the following person for some help on a few issue about routes setting: 
 
 ## License
 
@@ -65,7 +66,7 @@ Please refer to the LICENSE in the repo. ∆÷≥
 
 ## Contact
 
-Ryan Darton, ryandarton@gmail.com
-Elizabeth Ames, lizziejacoboo@gmail.com
+Elizabeth Ames, lizziejacoboo@gmail.com\
+Ryan Darton, ryandarton@gmail.com\
+Magali Lebon, magali.lb12@gmail.com\
 Mason McNeil, masonamc5@gmail.com
-Magali Lebon, magali.lb12@gmail.com
