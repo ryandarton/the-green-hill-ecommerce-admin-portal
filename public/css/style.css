@@ -28,6 +28,7 @@ h1 {
 
 h2 {
   font-size: var(--secondary-header-font-size);
+  margin: 0.5em;
 }
 
 h1,
@@ -51,6 +52,15 @@ menu,
   color: var(--primary-font-color);
   letter-spacing: var(--primary-text-spacing);
   line-height: 200%;
+}
+
+button {
+  margin: 5px 0;
+}
+
+p {
+  margin: 0.5em;
+  padding: 0.5em;
 }
 
 menu {
@@ -159,32 +169,6 @@ input {
 .no-account {
   font-size: small;
   margin: 0.5rem 0.5rem;
-}
-
-/*  product table style */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 8px;
-  font-family: var(--primary-font-family);
-  font-weight: var(--primary-font-weight);
-  font-style: var(--primary-font-style);
-  color: var(--primary-font-color);
-}
-
-th {
-  background-color: var(--secondary-background-color);
-  color: var(--header-font-color);
-}
-
-tr:nth-child(even) {
-  background-color: var(--primary-background-color);
 }
 
 /* MEDIA */
