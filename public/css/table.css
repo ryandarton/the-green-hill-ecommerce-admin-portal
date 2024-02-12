@@ -5,6 +5,10 @@
     display: none;
 }
 
+.message-header-text{
+  font-weight: 700;
+}
+
 table {
   width: 95vw;
   border-collapse: collapse;
