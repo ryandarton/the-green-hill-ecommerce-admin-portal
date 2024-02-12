@@ -1,9 +1,13 @@
 const router = require('express').Router();
 const Admin = require('../../models/Admin');
 
-// router.get('/', (req, res) => {
-//   res.render('login', { login: true });
-// });
+router.get('/login-state', (req, res) => {
+  if (req.session.logged_in) {
+      res.json({ loggedIn: true });
+  } else {
+      res.json({ loggedIn: false });
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
@@ -44,28 +48,17 @@ router.post('/', async (req, res) => {
   console.log('hello');
 });
 
-// router.get('/signup', (req, res) => {
-//   res.render('login', { login: false });
-// });
 
-// router.post('/signup', async (req, res) => {
-//   try {
-//     const signUpData = await Customer.create(req.body);
 
-//     req.session.save(() => {
-//       req.session.signup_id = signUpData.id;
-//       req.session.signed_up = true;
-//       res.json({ customer: signUpData, message: 'Thanks for signing up! Your now logged in' });
-//     });
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
-// router.post('/logout', (req, res) => {
-//   req.session.destroy(() => {
-//     res.json({ message: 'Logged out successfully.' });
-//   });
-// });
+router.post('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      res.status(500).json({})
+    } else {
+      res.status(200).json({})
+    } return;
+  });
+});
 
 module.exports = router;
