@@ -75,8 +75,19 @@ td.weight {
   min-width: 5rem;
 }
 
+tr.add-button-row td {
+  border: none;
+}
+
 tr:nth-child(even) {
   background-color: var(--primary-background-color);
+}
+
+tr.new-product-row {
+  background-color: hsla(171, 100%, 41%, 0.3);
+}
+
+.add-button-row {
 }
 
 /* MOBILE */
