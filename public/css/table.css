@@ -21,6 +21,12 @@ table {
   align-items: center;
 }
 
+.table tbody {
+  background-color: var(--tertiary-background-color);
+  padding: 20px;
+  border-radius: 30px;
+}
+
 th,
 td {
   text-align: left;
