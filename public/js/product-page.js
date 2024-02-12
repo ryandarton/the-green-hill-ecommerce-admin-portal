@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 $('.save').hide();
 $('.cancel').hide();
 $('.new-product-row').hide();
+$('.progress-indicator').hide();
 
 // EDIT FUNCTION
 $(document).on('click', '.edit', function () {
@@ -186,12 +187,12 @@ $(document).on('click', '#save-to-db-btn', function () {
   $('.add-button-row').hide();
   $(this).siblings('#save-to-db-button').hide();
   $(this).siblings('#cancel-new-product-btn').hide();
-  // refresh the page to reflect the new product
-  // wait for 1 second before refreshing the page
+  $('.progress-indicator').show();
+  // wait 10 seconds and then reload the page, then navigate to the bottom of the page
   setTimeout(() => {
     location.reload();
+    window.scrollTo(0, document.body.scrollHeight);
   }, 3000);
-  location.reload();
 });
 
 // CLOSE MESSAGE FUNCTION
