@@ -51,11 +51,14 @@ const updateProduct = (id, data) => {
 };
 
 $(document).on('click', '.save', function () {
-  $('input').each(function () {
-    var content = $(this).val();
-    $(this).html(content);
-    $(this).contents().unwrap();
-  });
+  $(this)
+    .closest('tr')
+    .find('input')
+    .each(function () {
+      var content = $(this).val();
+      $(this).html(content);
+      $(this).contents().unwrap();
+    });
   $(this).siblings('.edit').show();
   $(this).siblings('#delete-btn').show();
   $(this).siblings('.cancel').hide();
@@ -88,8 +91,10 @@ $(document).on('click', '.cancel', function () {
     .parent()
     .siblings('td.data')
     .each(function () {
-      var originalContent = $(this).data('original-content'); // Retrieve the original content
-      $(this).html(originalContent); // Set the original content as the HTML content
+      // Retrieve the original content
+      var originalContent = $(this).data('original-content');
+      // Set the original content as the HTML content
+      $(this).html(originalContent);
     });
 
   $(this).siblings('.edit').show();
