@@ -63,7 +63,6 @@ We used some code from these sources as a base for some of our work.
 
 - For editable row: https://codepen.io/lookininward/pen/zYOQjZM
 
-We also consulted the following person for some help on a few issue about routes setting: 
 
 ## License
 
